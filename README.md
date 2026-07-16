@@ -49,9 +49,16 @@ Do not reuse the example passwords, domains, certificates, or Node secret.
 
 ## Documentation
 
+- [Project map and repository ownership](docs/project-map.md)
+- [Custom feature registry](docs/custom-feature-registry.md)
+- [Upstream synchronization and custom iteration](docs/upstream-maintenance.md)
 - [Architecture](docs/architecture.md)
 - [Isolated validation](docs/isolated-validation.md)
 - [Production migration and rollback](docs/production-migration.md)
+
+Each runtime fork also contains an `AGENTS.md` file. It is the repository-local handoff for future
+maintainers and AI agents: project purpose, compatibility invariants, upstream repair procedure,
+validation gates, and definition of done.
 
 ## Upstream policy
 
@@ -61,3 +68,9 @@ publish amd64 and arm64 images.
 
 An upstream conflict or failed validation stops the synchronization before the fork branch is
 updated.
+
+If automation fails or a custom feature is added, follow
+[the upstream maintenance guide](docs/upstream-maintenance.md) and update
+[the feature registry](docs/custom-feature-registry.md). Custom functionality should be added
+through narrow compatibility layers and regression tests so it can be carried onto the next
+official release without replacing the upstream codebase.

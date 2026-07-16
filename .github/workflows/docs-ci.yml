@@ -22,13 +22,17 @@ jobs:
       - name: Check links and whitespace
         run: |
           test -f docs/architecture.md
+          test -f docs/project-map.md
+          test -f docs/custom-feature-registry.md
+          test -f docs/upstream-maintenance.md
           test -f docs/isolated-validation.md
           test -f docs/production-migration.md
+          test -f AGENTS.md
           ! grep -RInE '[[:blank:]]+$' --include='*.md' --include='*.yml' --include='*.example' .
 
       - name: Reject infrastructure addresses and fingerprints
         run: |
-          ! grep -RInE '([0-9]{1,3}\.){3}[0-9]{1,3}' README.md docs
-          if grep -RInE '[[:xdigit:]]{64}' README.md docs | grep -v 'ghcr.io/'; then
+          ! grep -RInE '([0-9]{1,3}\.){3}[0-9]{1,3}' README.md AGENTS.md docs
+          if grep -RInE '[[:xdigit:]]{64}' README.md AGENTS.md docs | grep -v 'ghcr.io/'; then
             exit 1
           fi
