@@ -1,0 +1,50 @@
+services:
+  remnawave:
+    image: ghcr.io/cd1s/remnawave-backend@sha256:635a7e4a25c8234cafb7b2eb501a5c7e7bd569265d213cbcc80a93b483b4bd43
+    restart: unless-stopped
+    env_file:
+      - panel.env
+    ports:
+      - 127.0.0.1:3000:3000
+      - 127.0.0.1:3001:3001
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:18.4
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: remnawave
+      POSTGRES_PASSWORD: replace-with-a-long-random-password
+      POSTGRES_DB: remnawave
+      TZ: UTC
+    volumes:
+      - remnawave-db:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U remnawave -d remnawave']
+      interval: 3s
+      timeout: 10s
+      retries: 10
+
+  redis:
+    image: valkey/valkey:9-alpine
+    restart: unless-stopped
+    command:
+      - valkey-server
+      - --save
+      - ''
+      - --appendonly
+      - 'no'
+      - --maxmemory-policy
+      - noeviction
+    healthcheck:
+      test: ['CMD', 'valkey-cli', 'ping']
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  remnawave-db:

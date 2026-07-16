@@ -1,0 +1,11 @@
+services:
+  remnawave-node:
+    image: ghcr.io/cd1s/remnawave-node@sha256:2667c2e11f3b1c38cd4a35f8dcca115fa31de32d9797cb5aa1f17ee3ed93318e
+    restart: unless-stopped
+    environment:
+      NODE_PORT: 2222
+      SECRET_KEY: replace-with-the-value-generated-by-your-panel
+    ports:
+      - 2222:2222
+      # Publish each proxy inbound declared in the selected config profile.
+      - 443:443
