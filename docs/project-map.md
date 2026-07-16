@@ -8,9 +8,10 @@ auditable fork delta.
 
 | Repository | Upstream relationship | Owns | Does not own |
 | --- | --- | --- | --- |
-| `Cd1s/backend:singbox` | Fork of `remnawave/backend:main` | API, database, config profiles, Node orchestration, user preparation, subscriptions, traffic attribution, backend image assembly | Browser presentation, core processes |
-| `Cd1s/frontend:singbox` | Fork of `remnawave/frontend:main` | Core-aware UI, config editor schema, profile and Node presentation | API semantics, database migrations, proxy runtime |
-| `Cd1s/node:singbox` | Fork of `remnawave/node:main` | Xray/sing-box processes, config activation, dynamic users, health, versions, traffic collection, Node image | Panel database, subscriptions, browser UI |
+| `Cd1s/remnawave-panel:singbox` | Fork of `remnawave/panel:main` | Public project entry, fork documentation, unified releases, links to maintained components | Backend, frontend, or Node runtime source |
+| `Cd1s/remnawave-backend:singbox` | Fork of `remnawave/backend:main` | API, database, config profiles, Node orchestration, user preparation, subscriptions, traffic attribution, backend image assembly | Browser presentation, core processes |
+| `Cd1s/remnawave-frontend:singbox` | Fork of `remnawave/frontend:main` | Core-aware UI, config editor schema, profile and Node presentation | API semantics, database migrations, proxy runtime |
+| `Cd1s/remnawave-node:singbox` | Fork of `remnawave/node:main` | Xray/sing-box processes, config activation, dynamic users, health, versions, traffic collection, Node image | Panel database, subscriptions, browser UI |
 | `Cd1s/remnawave-singbox:main` | Coordination repository; no Remnawave upstream | Architecture, feature registry, maintenance policy, validation evidence, public deployment examples | Product runtime source |
 
 ## Runtime relationship

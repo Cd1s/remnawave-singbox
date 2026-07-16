@@ -16,9 +16,10 @@ The fork keeps Xray compatibility and adds:
 
 | Component | Source | Image |
 | --- | --- | --- |
-| Backend | `Cd1s/backend:singbox` | `ghcr.io/cd1s/remnawave-backend:singbox` |
-| Frontend | `Cd1s/frontend:singbox` | Built into the backend image |
-| Node | `Cd1s/node:singbox` | `ghcr.io/cd1s/remnawave-node:singbox` |
+| Panel | `Cd1s/remnawave-panel:singbox` | Public project and documentation entry |
+| Backend | `Cd1s/remnawave-backend:singbox` | `ghcr.io/cd1s/remnawave-backend:singbox` |
+| Frontend | `Cd1s/remnawave-frontend:singbox` | Built into the backend image |
+| Node | `Cd1s/remnawave-node:singbox` | `ghcr.io/cd1s/remnawave-node:singbox` |
 
 For repeatable deployments, pin an OCI digest. `sha-<40-character-commit>` tags identify the source
 commit, but a CI rebuild of the same commit can update the tag's OCI index because build metadata

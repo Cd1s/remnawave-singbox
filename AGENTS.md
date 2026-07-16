@@ -6,11 +6,12 @@ This repository is the coordination and maintenance source of truth for the Remn
 fork. It contains public architecture, compatibility, validation, deployment examples, and
 cross-repository maintenance policy. It does not contain the panel or Node runtime source.
 
-The runtime repositories are:
+The maintained repositories are:
 
-- `Cd1s/backend`, branch `singbox`;
-- `Cd1s/frontend`, branch `singbox`;
-- `Cd1s/node`, branch `singbox`.
+- `Cd1s/remnawave-panel`, branch `singbox`;
+- `Cd1s/remnawave-backend`, branch `singbox`;
+- `Cd1s/remnawave-frontend`, branch `singbox`;
+- `Cd1s/remnawave-node`, branch `singbox`.
 
 Read these files before making a cross-repository change:
 
