@@ -8,6 +8,7 @@ The fork keeps Xray compatibility and adds:
 - per-config-profile core selection (`xray` or `singbox`);
 - sing-box 1.13.14 lifecycle management in Remnawave Node;
 - AnyTLS inbounds, users, traffic statistics, subscriptions, and frontend editing;
+- AnyTLS output for sing-box JSON and Shadowrocket-compatible Base64 subscriptions;
 - tested upstream synchronization;
 - multi-architecture GHCR images.
 

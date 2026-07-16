@@ -40,8 +40,9 @@ For an AnyTLS inbound:
 - sing-box `name` = Remnawave numeric user ID;
 - sing-box `password` = Remnawave `vlessUuid`.
 
-The same password is emitted in SINGBOX subscription JSON. Formats that have no standardized
-AnyTLS representation are skipped instead of emitting a misleading URI.
+The same password is emitted in SINGBOX subscription JSON and in the de-facto `anytls://` URI used
+by current Shadowrocket and compatible Base64 subscription clients. Xray JSON remains excluded
+because it has no AnyTLS outbound representation.
 
 ## Compatibility boundary
 
