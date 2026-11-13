@@ -6,9 +6,11 @@ the GitHub account [`Cd1s`](https://github.com/Cd1s).
 The fork keeps Xray compatibility and adds:
 
 - per-config-profile core selection (`xray` or `singbox`);
-- sing-box 1.13.14 lifecycle management in Remnawave Node;
-- AnyTLS inbounds, users, traffic statistics, subscriptions, and frontend editing;
-- AnyTLS output for sing-box JSON and Shadowrocket-compatible Base64 subscriptions;
+- sing-box 1.14.4 lifecycle management in Remnawave Node;
+- managed sing-box inbounds with users, traffic statistics, subscriptions, and frontend editing:
+  AnyTLS, VLESS (XTLS Vision, Reality, WebSocket, gRPC, HTTPUpgrade), Trojan, Shadowsocks (AEAD and
+  SS2022), Hysteria2, and TUIC;
+- sing-box JSON, Mihomo/Stash, and share-link (including Shadowrocket) subscription output for them;
 - tested upstream synchronization;
 - multi-architecture GHCR images.
 
@@ -35,8 +37,10 @@ The immutable images validated in an isolated test environment are:
 Existing config profiles default to Xray. Creating or editing an Xray profile follows the original
 Remnawave path. A profile only uses sing-box when its `coreType` is explicitly set to `singbox`.
 
-AnyTLS credentials reuse each user's `vlessUuid`; the numeric Remnawave user ID is sent as the
-sing-box user name so traffic can be attributed without changing the existing database model.
+sing-box credentials reuse each user's existing `vlessUuid`, `trojanPassword`, and `ssPassword`; the
+numeric Remnawave user ID is sent as the sing-box user name so traffic can be attributed without
+changing the existing database model. See [Architecture](docs/architecture.md#managed-inbound-mapping)
+for the per-protocol mapping and limits.
 
 ## Quick start
 
@@ -44,7 +48,7 @@ sing-box user name so traffic can be attributed without changing the existing da
 2. Register the initial administrator.
 3. Obtain a Node `SECRET_KEY` from the panel.
 4. Deploy the Node from [`compose/node.example.yml`](compose/node.example.yml).
-5. Create a sing-box config profile and select the AnyTLS inbound for the Node.
+5. Create a sing-box config profile and select its managed inbounds for the Node.
 
 Do not reuse the example passwords, domains, certificates, or Node secret.
 

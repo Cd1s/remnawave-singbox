@@ -13,7 +13,7 @@ The validation environment was intentionally separated from every existing servi
 
 The Node-only test verifies:
 
-- sing-box 1.13.14 startup and health reporting;
+- startup and health reporting of the sing-box version pinned in the Node image;
 - real AnyTLS traffic;
 - per-user traffic attribution;
 - traffic preservation across a reload;
