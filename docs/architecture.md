@@ -15,14 +15,14 @@ request to the selected core service.
 The Node image contains both:
 
 - Xray 26.6.27;
-- sing-box 1.13.14 built with V2Ray API, Clash API, QUIC, and uTLS tags.
+- sing-box 1.14.4 built with V2Ray API, Clash API, QUIC, and uTLS tags.
 
 Only one managed core is active for a profile. sing-box configurations are written atomically,
 validated with `sing-box check`, and then applied through the s6-managed process.
 
 ## User synchronization
 
-sing-box 1.13 does not expose a stable API for dynamically managing every supported inbound user.
+sing-box 1.14 does not expose a stable API for dynamically managing every supported inbound user.
 The adapter therefore:
 
 1. mutates the managed configuration;

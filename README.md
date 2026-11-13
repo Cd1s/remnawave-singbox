@@ -6,7 +6,7 @@ the GitHub account [`Cd1s`](https://github.com/Cd1s).
 The fork keeps Xray compatibility and adds:
 
 - per-config-profile core selection (`xray` or `singbox`);
-- sing-box 1.13.14 lifecycle management in Remnawave Node;
+- sing-box 1.14.4 lifecycle management in Remnawave Node;
 - AnyTLS inbounds, users, traffic statistics, subscriptions, and frontend editing;
 - AnyTLS output for sing-box JSON and Shadowrocket-compatible Base64 subscriptions;
 - tested upstream synchronization;
